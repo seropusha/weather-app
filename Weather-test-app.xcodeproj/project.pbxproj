@@ -14,7 +14,6 @@
 		D21371C8289D16D300C82319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21371C7289D16D300C82319 /* Assets.xcassets */; };
 		D21371CB289D16D300C82319 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21371C9289D16D300C82319 /* LaunchScreen.storyboard */; };
 		D21371D3289D176C00C82319 /* Weather App v1.0 (1) (3).pdf in Resources */ = {isa = PBXBuildFile; fileRef = D21371D2289D176C00C82319 /* Weather App v1.0 (1) (3).pdf */; };
-		D21371DD289D17A600C82319 /* Core.docc in Sources */ = {isa = PBXBuildFile; fileRef = D21371DC289D17A600C82319 /* Core.docc */; };
 		D21371DE289D17A600C82319 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = D21371DB289D17A600C82319 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D21371E1289D17A600C82319 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21371D9289D17A600C82319 /* Core.framework */; };
 		D21371E2289D17A600C82319 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D21371D9289D17A600C82319 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -101,7 +100,6 @@
 		D21371D2289D176C00C82319 /* Weather App v1.0 (1) (3).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Weather App v1.0 (1) (3).pdf"; sourceTree = "<group>"; };
 		D21371D9289D17A600C82319 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21371DB289D17A600C82319 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
-		D21371DC289D17A600C82319 /* Core.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Core.docc; sourceTree = "<group>"; };
 		D21371EA289D181A00C82319 /* PluginType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginType.swift; sourceTree = "<group>"; };
 		D21371EC289D181A00C82319 /* PrettyLoggingPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyLoggingPlugin.swift; sourceTree = "<group>"; };
 		D21371ED289D181A00C82319 /* ErrorResponseProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponseProcessor.swift; sourceTree = "<group>"; };
@@ -191,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				D296EC7628A1733C006155AB /* ApplicationFlowCoordinator.swift */,
+				D285652128A1A383007D763C /* View */,
 				D213728B289D290500C82319 /* MainViewController */,
 				D296EC6028A16767006155AB /* Helpers */,
 				D285651928A191FF007D763C /* Resources */,
@@ -207,7 +206,6 @@
 				D213727F289D1ADC00C82319 /* Common */,
 				D21371E8289D181A00C82319 /* Network */,
 				D21371DB289D17A600C82319 /* Core.h */,
-				D21371DC289D17A600C82319 /* Core.docc */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -367,6 +365,21 @@
 				D285651D28A194D0007D763C /* SearchResultModel.swift */,
 			);
 			path = SearchResultsController;
+			sourceTree = "<group>";
+		};
+		D285652128A1A383007D763C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D285652228A1A390007D763C /* Buttons */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D285652228A1A390007D763C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		D296EC5728A160CA006155AB /* Session */ = {
@@ -561,7 +574,6 @@
 				D213723A289D181A00C82319 /* PluginType.swift in Sources */,
 				D296EC5928A160D0006155AB /* Session.swift in Sources */,
 				D213723C289D181A00C82319 /* PrettyLoggingPlugin.swift in Sources */,
-				D21371DD289D17A600C82319 /* Core.docc in Sources */,
 				D2137253289D181A00C82319 /* HTTPMethod.swift in Sources */,
 				D296EC5F28A16296006155AB /* IconId.swift in Sources */,
 				D296EC5228A156A2006155AB /* CityResponse.swift in Sources */,

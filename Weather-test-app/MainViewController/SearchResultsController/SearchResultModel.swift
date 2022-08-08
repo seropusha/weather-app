@@ -12,6 +12,12 @@ import Combine
 final class SearchResultModel: ObservableObject {
     
     @Published var cities: [CityResponse] = []
+    var reload: AnyPublisher<Void, Never> {
+        $cities
+            .map { _ in }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
     var querySubscriber: AnySubscriber<String, Never> {
         AnySubscriber(query)
     }

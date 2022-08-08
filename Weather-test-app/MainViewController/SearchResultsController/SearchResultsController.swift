@@ -44,11 +44,8 @@ final class SearchResultsController: UITableViewController {
     }
     
     private func setupBindings() {
-        model.$cities
-            .receive(on: DispatchQueue.main)
-            .map { _ in }
-            .sink { [weak self] in
-                self?.tableView.reloadData()
-            }.store(in: &cancelBag)
+        model.reload.sink { [weak self] in
+            self?.tableView.reloadData()
+        }.store(in: &cancelBag)
     }
 }
