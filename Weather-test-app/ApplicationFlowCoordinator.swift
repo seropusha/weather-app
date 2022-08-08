@@ -21,8 +21,14 @@ final class ApplicationFlowCoordinator {
     
     func execute() {
         HomeAssembly.assembly(with: container)
+        
+        let searchResultsController: SearchResultsController = .instantiate(storyboardName: "Main")
+        searchResultsController.model = container.resolve(type:  SearchResultModel.self)
+        
         let controller: HomeViewController = .instantiate(storyboardName: "Main")
         controller.viewModel = container.resolve(type: HomeViewModel.self)
+        controller.searchResultController = searchResultsController
+        
         let navigationController = UINavigationController(rootViewController: controller)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

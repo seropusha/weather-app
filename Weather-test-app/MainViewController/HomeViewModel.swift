@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import Combine
 
 final class HomeViewModel {
     
     private let model: HomeModel
+    
+    var querySubscriber: AnySubscriber<String, Never> {
+        model.query
+    }
     
     init(model: HomeModel) {
         self.model = model

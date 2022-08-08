@@ -34,6 +34,7 @@ final class HomeAssembly {
             type: WeatherService.self,
             component: WeatherService(client: container.resolve(type: NetworkClient.self, name: "dataClient"))
         )
+        container.register(type: SearchResultModel.self, component: SearchResultModel(container: container))
         container.register(type: HomeModel.self, component: HomeModel(container: container))
         container.register(type: HomeViewModel.self, component: HomeViewModel(model: container.resolve(type: HomeModel.self)))
     }

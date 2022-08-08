@@ -43,6 +43,9 @@
 		D2137288289D1D7E00C82319 /* Dictionary+PrettyPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2137286289D1D7E00C82319 /* Dictionary+PrettyPrint.swift */; };
 		D213728A289D1DC300C82319 /* APIRequestProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2137289289D1DC300C82319 /* APIRequestProxy.swift */; };
 		D2137291289D2A2000C82319 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2137290289D2A2000C82319 /* WeatherService.swift */; };
+		D285651C28A19460007D763C /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285651B28A19460007D763C /* SearchResultsController.swift */; };
+		D285651E28A194D0007D763C /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285651D28A194D0007D763C /* SearchResultModel.swift */; };
+		D285652028A19D3E007D763C /* UITextField+TextPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285651F28A19D3E007D763C /* UITextField+TextPublisher.swift */; };
 		D296EC5228A156A2006155AB /* CityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EC5128A156A2006155AB /* CityResponse.swift */; };
 		D296EC5428A1584B006155AB /* CurrentCityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EC5328A1584B006155AB /* CurrentCityWeather.swift */; };
 		D296EC5628A15A5B006155AB /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EC5528A15A5B006155AB /* GeocodingService.swift */; };
@@ -124,6 +127,9 @@
 		D2137286289D1D7E00C82319 /* Dictionary+PrettyPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+PrettyPrint.swift"; sourceTree = "<group>"; };
 		D2137289289D1DC300C82319 /* APIRequestProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestProxy.swift; sourceTree = "<group>"; };
 		D2137290289D2A2000C82319 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		D285651B28A19460007D763C /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
+		D285651D28A194D0007D763C /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
+		D285651F28A19D3E007D763C /* UITextField+TextPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextPublisher.swift"; sourceTree = "<group>"; };
 		D296EC5128A156A2006155AB /* CityResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityResponse.swift; sourceTree = "<group>"; };
 		D296EC5328A1584B006155AB /* CurrentCityWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCityWeather.swift; sourceTree = "<group>"; };
 		D296EC5528A15A5B006155AB /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
@@ -311,6 +317,7 @@
 		D213728B289D290500C82319 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D285651A28A19445007D763C /* SearchResultsController */,
 				D296EC7828A174D3006155AB /* HomeAssembly.swift */,
 				D296EC6C28A16F86006155AB /* HomeModel.swift */,
 				D296EC6E28A16F8D006155AB /* HomeViewModel.swift */,
@@ -353,6 +360,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		D285651A28A19445007D763C /* SearchResultsController */ = {
+			isa = PBXGroup;
+			children = (
+				D285651B28A19460007D763C /* SearchResultsController.swift */,
+				D285651D28A194D0007D763C /* SearchResultModel.swift */,
+			);
+			path = SearchResultsController;
+			sourceTree = "<group>";
+		};
 		D296EC5728A160CA006155AB /* Session */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +394,7 @@
 			children = (
 				D296EC6628A16B88006155AB /* JSONDecoder+Default.swift */,
 				D296EC7328A17302006155AB /* UIViewController+instantiate.swift */,
+				D285651F28A19D3E007D763C /* UITextField+TextPublisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,9 +524,12 @@
 				D296EC7728A1733C006155AB /* ApplicationFlowCoordinator.swift in Sources */,
 				D296EC6B28A16F19006155AB /* DIContainer.swift in Sources */,
 				D296EC6228A16779006155AB /* Temperature.swift in Sources */,
+				D285651C28A19460007D763C /* SearchResultsController.swift in Sources */,
 				D296EC7428A17302006155AB /* UIViewController+instantiate.swift in Sources */,
 				D21371C1289D16D100C82319 /* SceneDelegate.swift in Sources */,
 				D296EC6428A1699C006155AB /* Settings.swift in Sources */,
+				D285651E28A194D0007D763C /* SearchResultModel.swift in Sources */,
+				D285652028A19D3E007D763C /* UITextField+TextPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
