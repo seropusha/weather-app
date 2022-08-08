@@ -20,6 +20,8 @@ final class ApplicationFlowCoordinator {
     }
     
     func execute() {
+        ApplicationAssembly.assembly(with: container)
+        SearchResultsAssembly.assembly(with: container)
         HomeAssembly.assembly(with: container)
         
         let searchResultsController: SearchResultsController = .instantiate(storyboardName: "Main")
