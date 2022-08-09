@@ -42,6 +42,7 @@
 		D2137288289D1D7E00C82319 /* Dictionary+PrettyPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2137286289D1D7E00C82319 /* Dictionary+PrettyPrint.swift */; };
 		D213728A289D1DC300C82319 /* APIRequestProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2137289289D1DC300C82319 /* APIRequestProxy.swift */; };
 		D2137291289D2A2000C82319 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2137290289D2A2000C82319 /* WeatherService.swift */; };
+		D224A46E28A2A12C00316D55 /* PredefindedCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224A46D28A2A12C00316D55 /* PredefindedCities.swift */; };
 		D285651C28A19460007D763C /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285651B28A19460007D763C /* SearchResultsController.swift */; };
 		D285651E28A194D0007D763C /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285651D28A194D0007D763C /* SearchResultModel.swift */; };
 		D285652028A19D3E007D763C /* UITextField+TextPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285651F28A19D3E007D763C /* UITextField+TextPublisher.swift */; };
@@ -128,6 +129,7 @@
 		D2137286289D1D7E00C82319 /* Dictionary+PrettyPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+PrettyPrint.swift"; sourceTree = "<group>"; };
 		D2137289289D1DC300C82319 /* APIRequestProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestProxy.swift; sourceTree = "<group>"; };
 		D2137290289D2A2000C82319 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		D224A46D28A2A12C00316D55 /* PredefindedCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredefindedCities.swift; sourceTree = "<group>"; };
 		D285651B28A19460007D763C /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		D285651D28A194D0007D763C /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
 		D285651F28A19D3E007D763C /* UITextField+TextPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextPublisher.swift"; sourceTree = "<group>"; };
@@ -352,11 +354,20 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		D224A46C28A2A11A00316D55 /* Predefined */ = {
+			isa = PBXGroup;
+			children = (
+				D285652328A1A5DD007D763C /* PredefindedCities.plist */,
+				D224A46D28A2A12C00316D55 /* PredefindedCities.swift */,
+			);
+			path = Predefined;
+			sourceTree = "<group>";
+		};
 		D285651928A191FF007D763C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D224A46C28A2A11A00316D55 /* Predefined */,
 				D21371CC289D16D300C82319 /* Info.plist */,
-				D285652328A1A5DD007D763C /* PredefindedCities.plist */,
 				D21371BE289D16D100C82319 /* AppDelegate.swift */,
 				D21371C0289D16D100C82319 /* SceneDelegate.swift */,
 				D21371C4289D16D100C82319 /* Main.storyboard */,
@@ -549,6 +560,7 @@
 				D285652628A1A85B007D763C /* SearchResultsAssembly.swift in Sources */,
 				D296EC6228A16779006155AB /* Temperature.swift in Sources */,
 				D285651C28A19460007D763C /* SearchResultsController.swift in Sources */,
+				D224A46E28A2A12C00316D55 /* PredefindedCities.swift in Sources */,
 				D296EC7428A17302006155AB /* UIViewController+instantiate.swift in Sources */,
 				D21371C1289D16D100C82319 /* SceneDelegate.swift in Sources */,
 				D296EC6428A1699C006155AB /* Settings.swift in Sources */,
