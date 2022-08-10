@@ -16,7 +16,7 @@ public protocol CodableKeyValueStorage {
     var notificationCenter: NotificationCenter { get }
     func setObject<T>(_ value: T?, forKey key: String) where T: Codable
     func object<T>(forKey key: String) -> T? where T: Codable
-    func publisher<T>(key: String, defaultValue: T) -> AnyPublisher<T, Never> where T: Equatable, T: Codable
+    func publisher<T>(key: String) -> AnyPublisher<T, Never> where T: Equatable, T: Codable
     
 }
 
@@ -63,10 +63,10 @@ extension UserDefaults: CodableKeyValueStorage {
         }
     }
     
-    public func publisher<T>(key: String, defaultValue: T) -> AnyPublisher<T, Never> where T: Equatable, T: Codable {
+    public func publisher<T>(key: String) -> AnyPublisher<T, Never> where T: Equatable, T: Codable {
         notificationCenter
             .publisher(for: UserDefaults.didChangeNotification)
-            .compactMap { [weak self] _ in self?.object(forKey: key) ?? defaultValue }
+            .compactMap { [weak self] _ in self?.object(forKey: key) }
             .removeDuplicates()
             .eraseToAnyPublisher()
     }

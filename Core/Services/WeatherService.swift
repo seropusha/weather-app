@@ -28,4 +28,18 @@ public final class WeatherService {
         
         return await client.execute(request, parser: parser)
     }
+    
+    public func getForecastWeather(by cityId: Int) async -> Result<ForecastWeatherResponse> {
+        let request = GetForecastWeatherByCityId(cityId: cityId)
+        let parser = DecodableParser<ForecastWeatherResponse>()
+        
+        return await client.execute(request, parser: parser)
+    }
+    
+    public func getForecastWeather(latitude: Double, longtitude: Double) async -> Result<ForecastWeatherResponse> {
+        let request = GetForecastWeatherByCoordinates(latitude: latitude, longtitude: longtitude)
+        let parser = DecodableParser<ForecastWeatherResponse>()
+        
+        return await client.execute(request, parser: parser)
+    }
 }

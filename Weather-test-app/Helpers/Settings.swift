@@ -21,8 +21,12 @@ public final class Settings {
         self.storage = storage
     }
     
+    var currentMeasureType: Temperature {
+        storage.object(forKey: Self.temperatureMeasureType) ?? .celsius
+    }
+    
     var publisherMeasureType: AnyPublisher<Temperature, Never> {
-        storage.publisher(key: Self.temperatureMeasureType, defaultValue: .celsius)
+        storage.publisher(key: Self.temperatureMeasureType)
     }
     
     func update(measureType: Temperature) {

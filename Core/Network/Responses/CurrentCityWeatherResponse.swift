@@ -7,18 +7,18 @@
 //
 
 public struct CurrentCityWeatherResponse: Codable {
-    public let id: Int
-    public let coord: Coordinates
+    public let id: Int?
+    public let coord: Coordinates?
     public let weather: [Weather]
-    public let base: String
+    public let base: String?
     public let main: Main
     public let visibility: Int
     public let wind: Wind
     public let clouds: Clouds
     public let dt: Int
     public let sys: Sys
-    public let timezone: Int
-    public let name: String
+    public let timezone: Int?
+    public let name: String?
 }
 
 public struct Clouds: Codable {
@@ -54,11 +54,12 @@ public struct Main: Codable {
 }
 
 public struct Sys: Codable {
-    public let type: Int
-    public let id: Int
-    public let country: String
-    public let sunrise: Date
-    public let sunset: Date
+    public let type: Int?
+    public let id: Int?
+    public let country: String?
+    public let sunrise: Date?
+    public let sunset: Date?
+    public let pod: String?
 }
 
 public struct Weather: Codable {

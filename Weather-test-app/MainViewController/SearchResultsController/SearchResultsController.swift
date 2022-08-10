@@ -10,8 +10,13 @@ import UIKit
 import Combine
 import Core
 
+protocol SearchResultsControllerDelegate: AnyObject {
+    func searchResultsShouldHide(_ controller: SearchResultsController)
+}
+
 final class SearchResultsController: UITableViewController {
     
+    weak var delegate: SearchResultsControllerDelegate?
     var model: SearchResultsModel!
     private var cancelBag: Set<AnyCancellable> = .init()
     
@@ -39,6 +44,7 @@ final class SearchResultsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.searchResultsShouldHide(self)
         let city = model.cities[indexPath.row]
         model.didSelect(city)
     }

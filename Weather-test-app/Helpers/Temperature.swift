@@ -13,28 +13,46 @@ enum Temperature: Codable {
     case celsius
 }
 
+extension Temperature {
+    var switchToTitle: String {
+        switch self {
+        case .celsius:
+            return "switch to fahrenheits"
+            
+        case .fahrenheit:
+            return "switch to celsius"
+        }
+    }
+}
+
 protocol TemperatureCalculable {
-    func calculate(fahrenheit: Double, to measure: Temperature) -> Double 
+    func calculate(kelvin: Double, to measure: Temperature) -> Double
 }
 
 extension TemperatureCalculable {
-    func calculate(fahrenheit: Double, to measure: Temperature) -> Double {
+    func calculate(kelvin: Double, to measure: Temperature) -> Double {
         switch measure {
         case .celsius:
-            return (fahrenheit - 32) * 5 / 9
+            return kelvin - 273.15
             
         case .fahrenheit:
-            return fahrenheit
+            return 9.0 / 5.0 * (kelvin - 273.15) + 32.0
         }
     }
     
-    func calculatedString(fahrenheit: Double, to measure: Temperature) -> String {
+    func calculatedString(kelvin: Double, to measure: Temperature) -> String {
         switch measure {
         case .fahrenheit:
-            return "\(calculate(fahrenheit: fahrenheit, to: measure)) °F"
+            let value = calculate(kelvin: kelvin, to: measure)
+            let formattedString = String(format: "%.1f", value)
+
+            return "\(formattedString) °F"
             
         case .celsius:
-            return "\(calculate(fahrenheit: fahrenheit, to: measure)) °C"
+            let value = calculate(kelvin: kelvin, to: measure)
+            let formattedString = String(format: "%.1f", value)
+            
+            return "\(formattedString) °C"
         }
     }
 }
