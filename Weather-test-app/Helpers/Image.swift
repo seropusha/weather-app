@@ -10,10 +10,12 @@ import UIKit
 import Kingfisher
 
 public enum Image {
+    
     public static let defaultPlaceholderImage: UIImage? = .init(named: "placeholder")
     
     case image(UIImage)
     case url(url: URL?, placeholder: UIImage? = Self.defaultPlaceholderImage)
+    
 }
 
 extension UIImageView {

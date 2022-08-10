@@ -19,8 +19,8 @@ final class SearchResultsAssembly {
         )
         container.register(type: NetworkClient.self, name: "geoClient", component: geoNetworkClient)
         container.register(
-            type: GeocidingService.self,
-            component: GeocidingService(client: container.resolve(type: NetworkClient.self, name: "geoClient"))
+            type: GeocodingService.self,
+            component: GeocodingService(client: container.resolve(type: NetworkClient.self, name: "geoClient"))
         )
         container.register(type: SearchResultsModel.self, component: SearchResultsModel(container: container))
     }

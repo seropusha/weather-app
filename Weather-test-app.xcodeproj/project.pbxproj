@@ -218,10 +218,7 @@
 		D21371BD289D16D100C82319 /* Weather-test-app */ = {
 			isa = PBXGroup;
 			children = (
-				D285652728A1A900007D763C /* ApplicationAssembly.swift */,
-				D296EC7628A1733C006155AB /* ApplicationFlowCoordinator.swift */,
-				D285652128A1A383007D763C /* Views */,
-				D213728B289D290500C82319 /* MainViewController */,
+				D224A48D28A458B900316D55 /* Flows */,
 				D296EC6028A16767006155AB /* Helpers */,
 				D285651928A191FF007D763C /* Resources */,
 			);
@@ -413,6 +410,16 @@
 			path = DTOs;
 			sourceTree = "<group>";
 		};
+		D224A48D28A458B900316D55 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				D285652728A1A900007D763C /* ApplicationAssembly.swift */,
+				D296EC7628A1733C006155AB /* ApplicationFlowCoordinator.swift */,
+				D213728B289D290500C82319 /* MainViewController */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		D285651928A191FF007D763C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,21 +442,6 @@
 				D285651D28A194D0007D763C /* SearchResultsModel.swift */,
 			);
 			path = SearchResultsController;
-			sourceTree = "<group>";
-		};
-		D285652128A1A383007D763C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				D285652228A1A390007D763C /* Buttons */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		D285652228A1A390007D763C /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Buttons;
 			sourceTree = "<group>";
 		};
 		D296EC5728A160CA006155AB /* Session */ = {

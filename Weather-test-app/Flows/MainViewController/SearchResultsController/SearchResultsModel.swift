@@ -22,12 +22,12 @@ final class SearchResultsModel: ObservableObject {
         AnySubscriber(query)
     }
     var didSelect: (CityResponse) -> Void = { _ in }
-    private let geocodingService: GeocidingService
+    private let geocodingService: GeocodingService
     private let query: CurrentValueSubject<String, Never> = .init("")
     private var cancelBag: Set<AnyCancellable> = .init()
     
     init(container: DIContainer) {
-        self.geocodingService = container.resolve(type: GeocidingService.self)
+        self.geocodingService = container.resolve(type: GeocodingService.self)
         
         setupBindings()
     }

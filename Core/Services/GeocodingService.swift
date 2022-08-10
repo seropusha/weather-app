@@ -8,7 +8,7 @@
 
 import Foundation
 
-public final class GeocidingService {
+public final class GeocodingService {
     
     private let client: NetworkClient
     
