@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 final class HomeViewModel {
     
@@ -20,8 +21,16 @@ final class HomeViewModel {
     init(model: HomeModel) {
         self.model = model
     }
-    
-    func load() {
-        model.load()
+}
+
+extension HomeViewModel {
+    func map(city: CityStorable) -> HomeCityCell.ViewModel {
+        HomeCityCell.ViewModel(
+            weatherImage: .image(UIImage()),
+            cityName: city.name,
+            weatherDescription: "-",
+            maxTempString: "MAX: -",
+            minTempString: "MIN: -"
+        )
     }
 }

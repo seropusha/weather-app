@@ -12,7 +12,8 @@ import Core
 final class ApplicationAssembly {
     
     static func assembly(with container: DIContainer) {
-        container.register(type: Settings.self, component: Settings(storage: UserDefaults.standard))
+        container.register(type: CodableKeyValueStorage.self, component: UserDefaults.standard)
+        container.register(type: Settings.self, component: Settings(storage: container.resolve(type: CodableKeyValueStorage.self)))
         container.register(type: Session.self, component: Session())
     }
 }

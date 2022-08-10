@@ -22,6 +22,6 @@ final class SearchResultsAssembly {
             type: GeocidingService.self,
             component: GeocidingService(client: container.resolve(type: NetworkClient.self, name: "geoClient"))
         )
-        container.register(type: SearchResultModel.self, component: SearchResultModel(container: container))
+        container.register(type: SearchResultsModel.self, component: SearchResultsModel(container: container))
     }
 }

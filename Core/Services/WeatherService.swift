@@ -15,16 +15,16 @@ public final class WeatherService {
         self.client = client
     }
     
-    public func getWeather(by cityId: Int) async -> Result<CurrentCityWeather> {
+    public func getWeather(by cityId: Int) async -> Result<CurrentCityWeatherResponse> {
         let request = GetWeatherByCityId(cityId: cityId)
-        let parser = DecodableParser<CurrentCityWeather>()
+        let parser = DecodableParser<CurrentCityWeatherResponse>()
         
         return await client.execute(request, parser: parser)
     }
     
-    public func getWeather(latitude: Double, longtitude: Double) async -> Result<CurrentCityWeather> {
+    public func getWeather(latitude: Double, longtitude: Double) async -> Result<CurrentCityWeatherResponse> {
         let request = GetWeatherByCoordinates(latitude: latitude, longtitude: longtitude)
-        let parser = DecodableParser<CurrentCityWeather>()
+        let parser = DecodableParser<CurrentCityWeatherResponse>()
         
         return await client.execute(request, parser: parser)
     }

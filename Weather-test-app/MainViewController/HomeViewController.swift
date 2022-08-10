@@ -9,16 +9,16 @@ import UIKit
 import Core
 import Combine
 
-class HomeViewController: UIViewController {
+class HomeViewController: UITableViewController {
     
     var viewModel: HomeViewModel!
-    var searchResultController: SearchResultsController!
+    var searchResultsController: SearchResultsController!
     private var searchController: UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchController = UISearchController(searchResultsController: searchResultController)
+        searchController = UISearchController(searchResultsController: searchResultsController)
         navigationItem.searchController = searchController
         setupBindings()
     }
@@ -29,6 +29,21 @@ class HomeViewController: UIViewController {
             .map { $0 == nil ? "" : $0! }
             .receive(subscriber: viewModel.querySubscriber)
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        2
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: HomeCityCell.self),
+            for: indexPath
+        ) as! HomeCityCell
+        
+        return cell
+    }
 }
-

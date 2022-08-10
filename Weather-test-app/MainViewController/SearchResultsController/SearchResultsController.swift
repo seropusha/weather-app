@@ -12,7 +12,7 @@ import Core
 
 final class SearchResultsController: UITableViewController {
     
-    var model: SearchResultModel!
+    var model: SearchResultsModel!
     private var cancelBag: Set<AnyCancellable> = .init()
     
     override func viewDidLoad() {

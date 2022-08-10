@@ -25,11 +25,11 @@ final class ApplicationFlowCoordinator {
         HomeAssembly.assembly(with: container)
         
         let searchResultsController: SearchResultsController = .instantiate(storyboardName: "Main")
-        searchResultsController.model = container.resolve(type:  SearchResultModel.self)
+        searchResultsController.model = container.resolve(type:  SearchResultsModel.self)
         
         let controller: HomeViewController = .instantiate(storyboardName: "Main")
         controller.viewModel = container.resolve(type: HomeViewModel.self)
-        controller.searchResultController = searchResultsController
+        controller.searchResultsController = searchResultsController
         
         let navigationController = UINavigationController(rootViewController: controller)
         window.rootViewController = navigationController

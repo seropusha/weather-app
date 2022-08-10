@@ -9,7 +9,7 @@
 import Core
 import Combine
 
-final class SearchResultModel: ObservableObject {
+final class SearchResultsModel: ObservableObject {
     
     @Published var cities: [CityResponse] = []
     var reload: AnyPublisher<Void, Never> {

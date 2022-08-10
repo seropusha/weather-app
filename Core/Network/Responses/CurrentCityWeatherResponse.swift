@@ -6,7 +6,7 @@
 //  Copyright © 2022 Navka. All rights reserved.
 //
 
-public struct CurrentCityWeather: Codable {
+public struct CurrentCityWeatherResponse: Codable {
     public let id: Int
     public let coord: Coordinates
     public let weather: [Weather]
