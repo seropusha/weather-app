@@ -5,6 +5,7 @@
 - The project built with different targets (e.g. Main(weather-app), Core).
 - Built with reactive MVVM architecture pattern in mind.
 - Custom `DIContainer` as DI
+- Custom Newtork layer (`APIClient`).
 
 ## Project base overview
 
