@@ -68,6 +68,13 @@ extension ApplicationFlowCoordinator: HomeModelEventDelegate {
 extension ApplicationFlowCoordinator: CityWeatherDetaileEventDelegate {
     
     func detailed(_ controller: CityWeatherDetailedModel, shouldShowMapFor city: CityStorable) {
+        guard let longtitue = city.longtitue,
+                let latitude = city.latitude
+        else { return }
         
+        let controller: MapViewController = .instantiate(storyboardName: "Main")
+        controller.model = MapModel(longtitude: longtitue, latitude: latitude)
+        let navigationController = containerViewController?.presentedViewController as? UINavigationController
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -361,10 +361,10 @@
             </objects>
             <point key="canvasLocation" x="29" y="831"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="z54-1b-RqZ">
             <objects>
-                <viewController id="b7v-aD-uws" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="b7v-aD-uws" customClass="MapViewController" customModule="Weather_test_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hIH-Db-FbK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -382,6 +382,9 @@
                             <constraint firstItem="8fJ-yk-lvn" firstAttribute="leading" secondItem="3d3-hd-ICM" secondAttribute="leading" id="rww-bS-IeS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="8fJ-yk-lvn" id="eEC-gp-Gvn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy7-86-vAw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
