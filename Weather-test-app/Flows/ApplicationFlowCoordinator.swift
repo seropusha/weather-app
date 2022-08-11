@@ -31,9 +31,10 @@ final class ApplicationFlowCoordinator {
         searchResultsController.model = container.resolve(type:  SearchResultsModel.self)
         
         let controller: HomeViewController = .instantiate(storyboardName: "Main")
-        controller.viewModel = container.resolve(type: HomeViewModel.self)
+        let homeModel = container.resolve(type: HomeModel.self)
+        homeModel.eventDelegate = self
+        controller.viewModel = HomeViewModel(model: homeModel)
         controller.searchResultsController = searchResultsController
-        controller.eventDelegate = self
         
         let navigationController = UINavigationController(rootViewController: controller)
         containerViewController = navigationController
@@ -45,18 +46,28 @@ final class ApplicationFlowCoordinator {
 
 // MARK: - HomeViewVontrollerEventDelegate
 
-extension ApplicationFlowCoordinator: HomeViewVontrollerEventDelegate {
-    
-    func home(_ controller: HomeViewController, didSelect: CityStorable) {
+extension ApplicationFlowCoordinator: HomeModelEventDelegate {
+
+    func home(_ controller: HomeModel, didSelect: CityStorable) {
         let model = CityWeatherDetailedModel(
             weatherService: container.resolve(type: WeatherService.self),
             city: didSelect,
             settings: container.resolve(type: Settings.self)
         )
+        model.eventDelegate = self
         let viewModel = CityWeatherDetailedViewModel(model: model)
         let controller: CityWeatherDetailedViewController = .instantiate(storyboardName: "Main")
         controller.viewModel = viewModel
         let navigationController = UINavigationController(rootViewController: controller)
         containerViewController?.present(navigationController, animated: true)
+    }
+}
+
+// MARK: - CityWeatherDetaileEventDelegate
+
+extension ApplicationFlowCoordinator: CityWeatherDetaileEventDelegate {
+    
+    func detailed(_ controller: CityWeatherDetailedModel, shouldShowMapFor city: CityStorable) {
+        
     }
 }

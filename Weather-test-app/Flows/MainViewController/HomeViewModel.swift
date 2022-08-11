@@ -49,6 +49,10 @@ final class HomeViewModel {
     func toggleMeasureType() {
         model.toggleMeasureType()
     }
+    
+    func showDetailedWeather(for city: CityStorable) {
+        model.showDetailedWeather(for: city)
+    }
 }
 
 // MARK: - Mappers

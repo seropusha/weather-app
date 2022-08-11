@@ -10,8 +10,13 @@ import Foundation
 import Core
 import Combine
 
+protocol CityWeatherDetaileEventDelegate: AnyObject {
+    func detailed(_ controller: CityWeatherDetailedModel, shouldShowMapFor city: CityStorable)
+}
+
 final class CityWeatherDetailedModel: ObservableObject {
     
+    weak var eventDelegate: CityWeatherDetaileEventDelegate?
     @Published var forecastWeather: ForecastWeatherResponse?
     @Published var measureType: Temperature = .celsius
     var title: String {
@@ -19,7 +24,7 @@ final class CityWeatherDetailedModel: ObservableObject {
     }
     private let settings: Settings
     private let weatherService: WeatherService
-    private let city: CityStorable
+    private var city: CityStorable
     private var cancelBag: Set<AnyCancellable> = .init()
     
     init(weatherService: WeatherService, city: CityStorable, settings: Settings) {
@@ -41,6 +46,10 @@ final class CityWeatherDetailedModel: ObservableObject {
         }
     }
     
+    func sendShowMapEvent() {
+        eventDelegate?.detailed(self, shouldShowMapFor: city)
+    }
+    
     func load() {
         if let cityId = city.cityId {
             Task {
@@ -49,6 +58,7 @@ final class CityWeatherDetailedModel: ObservableObject {
                 switch result {
                 case .success(let weather):
                     forecastWeather = weather
+                    city.update(latitude: weather.city.coordinates.latitude, longtitude: weather.city.coordinates.longtitude)
                     
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
@@ -62,6 +72,7 @@ final class CityWeatherDetailedModel: ObservableObject {
                 switch result {
                 case .success(let weather):
                     forecastWeather = weather
+                    city.update(latitude: weather.city.coordinates.latitude, longtitude: weather.city.coordinates.longtitude)
                     
                 case .failure(let error):
                     debugPrint(error.localizedDescription)

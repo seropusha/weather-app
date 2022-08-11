@@ -11,8 +11,13 @@ import Core
 import Combine
 import Collections
 
+protocol HomeModelEventDelegate: AnyObject {
+    func home(_ controller: HomeModel, didSelect: CityStorable)
+}
+
 final class HomeModel: ObservableObject {
     
+    weak var eventDelegate: HomeModelEventDelegate?
     @Published var measureType: Temperature = .celsius
     @Published var cities: [CityStorable] = []
     @Published var weatherDict: [CityStorable: CurrentCityWeatherResponse] = [:]
@@ -46,6 +51,10 @@ final class HomeModel: ObservableObject {
         case .celsius:
             settings.update(measureType: .fahrenheit)
         }
+    }
+    
+    func showDetailedWeather(for city: CityStorable) {
+        eventDelegate?.home(self, didSelect: city)
     }
 }
 

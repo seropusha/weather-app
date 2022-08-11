@@ -9,13 +9,8 @@ import UIKit
 import Core
 import Combine
 
-protocol HomeViewVontrollerEventDelegate: AnyObject {
-    func home(_ controller: HomeViewController, didSelect: CityStorable)
-}
-
 class HomeViewController: UITableViewController {
     
-    weak var eventDelegate: HomeViewVontrollerEventDelegate?
     var viewModel: HomeViewModel!
     var searchResultsController: SearchResultsController!
     private var searchController: UISearchController!
@@ -94,7 +89,7 @@ extension HomeViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let city = viewModel.cities[indexPath.row]
-        eventDelegate?.home(self, didSelect: city)
+        viewModel.showDetailedWeather(for: city)
     }
 }
 

@@ -19,11 +19,12 @@ final class CityWeatherDetailedViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = viewModel.title
         setupBindings()
+        setupShowMapBarButton()
+        viewModel.load()
+        title = viewModel.title
         layout.delegate = self
         collectionView.collectionViewLayout = layout.build()
-        viewModel.load()
     }
 }
 
@@ -33,6 +34,11 @@ extension CityWeatherDetailedViewController {
     @objc
     private func toggleMeasure(_ sender: UIBarButtonItem) {
         viewModel.toggleMeasureType()
+    }
+    
+    @objc
+    private func showMap(_ sender: UIBarButtonItem) {
+        viewModel.sendShowMapEvent()
     }
 }
 
@@ -45,6 +51,15 @@ extension CityWeatherDetailedViewController {
             style: .plain,
             target: self,
             action: #selector(toggleMeasure)
+        )
+    }
+    
+    private func setupShowMapBarButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Show map",
+            style: .plain,
+            target: self,
+            action: #selector(showMap)
         )
     }
     

@@ -61,6 +61,10 @@ final class CityWeatherDetailedViewModel {
         model.toggleMeasureType()
     }
     
+    func sendShowMapEvent() {
+        model.sendShowMapEvent()
+    }
+    
     func load() {
         model.load()
     }

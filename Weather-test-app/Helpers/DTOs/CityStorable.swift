@@ -40,6 +40,16 @@ struct CityStorable: Codable, Hashable {
         self.cityId = nil
     }
     
+    mutating func update(latitude: Double, longtitude: Double) {
+        self = CityStorable(
+            name: name,
+            latitude: latitude,
+            longtitue: longtitude,
+            country: country,
+            state: state
+        )
+    }
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
     }
