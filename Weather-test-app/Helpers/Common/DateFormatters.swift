@@ -10,10 +10,11 @@ import Foundation
 
 extension DateFormatter {
     
-    /// Format: "EEEE" (Ex. "Friday")
-    static let day: DateFormatter = {
+    /// Format: "HH:mm" (Ex. "10:33")
+    static let time: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE"
+        formatter.dateFormat = "HH:mm"
+        formatter.locale = Locale(identifier: "en_US")
         
         return formatter
     }()
@@ -24,6 +25,15 @@ extension DateFormatter {
         formatter.dateFormat = "EEEE, HH:mm"
         formatter.locale = Locale(identifier: "en_US")
         formatter.timeZone = TimeZone(identifier: "UTC")
+        
+        return formatter
+    }()
+    
+    /// Format: "dd MMMM"
+    static let day: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM"
+        formatter.locale = Locale(identifier: "en_US")
         
         return formatter
     }()

@@ -15,7 +15,7 @@ public struct CurrentCityWeatherResponse: Codable {
     public let visibility: Int
     public let wind: Wind
     public let clouds: Clouds
-    public let dt: Int
+    public let dt: Date
     public let sys: Sys
     public let timezone: Int?
     public let name: String?
