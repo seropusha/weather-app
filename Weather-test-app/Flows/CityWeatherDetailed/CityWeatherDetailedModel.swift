@@ -49,7 +49,7 @@ final class CityWeatherDetailedModel: ObservableObject {
                 switch result {
                 case .success(let weather):
                     forecastWeather = weather
-
+                    
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
                 }
@@ -69,7 +69,11 @@ final class CityWeatherDetailedModel: ObservableObject {
             }
         }
     }
-    
+}
+
+// MARK: - Private
+
+extension CityWeatherDetailedModel {
     private func setupBindings() {
         settings.publisherMeasureType.sink { [weak self] measureType in
             self?.measureType = measureType

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - HomeCityCell.ViewModel
+
 extension HomeCityCell {
     struct ViewModel {
         let weatherImage: Image
@@ -43,7 +45,11 @@ final class HomeCityCell: UITableViewCell {
         
         weartherImageView.cancelImageFetching()
     }
+}
 
+// MARK: - Private
+
+extension HomeCityCell {
     private func setupViewModel() {
         weartherImageView.setImage(viewModel.weatherImage)
         cityNameLabel.text = viewModel.cityName

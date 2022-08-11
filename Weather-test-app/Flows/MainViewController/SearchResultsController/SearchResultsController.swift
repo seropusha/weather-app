@@ -28,6 +28,8 @@ final class SearchResultsController: UITableViewController {
         tableView.delegate = self
     }
     
+    // MARK: - UITableViewDataSource && UITAableViewDelegate
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         model.cities.count
     }
@@ -48,6 +50,8 @@ final class SearchResultsController: UITableViewController {
         let city = model.cities[indexPath.row]
         model.didSelect(city)
     }
+    
+    // MARK: - Private
     
     private func setupBindings() {
         model.reload.sink { [weak self] in

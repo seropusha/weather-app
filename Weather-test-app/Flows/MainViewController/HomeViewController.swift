@@ -30,16 +30,20 @@ class HomeViewController: UITableViewController {
         navigationItem.searchController = searchController
         setupBindings()        
     }
-    
-    // MARK: - Actions
-    
+}
+
+// MARK: - Actions
+
+extension HomeViewController {
     @objc
     private func toggleMeasure(_ sender: UIBarButtonItem) {
         viewModel.toggleMeasureType()
     }
-    
-    // MARK: - Private
+}
 
+// MARK: - Private
+
+extension HomeViewController {
     private func setupBindings() {
         searchController.searchBar.searchTextField
             .textPublisher
@@ -62,11 +66,10 @@ class HomeViewController: UITableViewController {
             target: self,
             action: #selector(toggleMeasure)
         )
-    }    
+    }
 }
 
 // MARK: - UITableViewDataSource && UITAbleViewDelegate
-
 
 extension HomeViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -98,7 +101,6 @@ extension HomeViewController {
 // MARK: - SearchResultsControllerDelegate
 
 extension HomeViewController: SearchResultsControllerDelegate {
-    
     func searchResultsShouldHide(_ controller: SearchResultsController) {
         searchController.isActive = false
     }

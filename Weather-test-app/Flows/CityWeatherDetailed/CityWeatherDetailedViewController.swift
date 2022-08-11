@@ -25,16 +25,20 @@ final class CityWeatherDetailedViewController: UICollectionViewController {
         collectionView.collectionViewLayout = layout.build()
         viewModel.load()
     }
-    
-    // MARK: - Actions
-    
+}
+
+// MARK: - Actions
+ 
+extension CityWeatherDetailedViewController {
     @objc
     private func toggleMeasure(_ sender: UIBarButtonItem) {
         viewModel.toggleMeasureType()
     }
-    
-    // MARK: - Private
-    
+}
+
+// MARK: - Private
+
+extension CityWeatherDetailedViewController {
     private func setupMeasureBarButton(title: String) {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: title,

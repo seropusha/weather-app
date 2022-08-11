@@ -32,10 +32,14 @@ final class SearchResultsModel: ObservableObject {
         setupBindings()
     }
     
-    
     func shouldStartSearch(with query: String) -> Bool {
         query.count > 1
     }
+}
+
+// MARK: - Private
+
+extension SearchResultsModel {
     
     private func setupBindings() {
         query

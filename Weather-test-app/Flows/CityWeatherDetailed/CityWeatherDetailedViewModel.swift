@@ -35,29 +35,26 @@ final class CityWeatherDetailedViewModel {
     var data: [(key: Date, value: [CurrentCityWeatherResponse])] {
         _data.value
     }
-    private let _data: CurrentValueSubject<[(key: Date, value: [CurrentCityWeatherResponse])], Never> = .init([])
-    private let model: CityWeatherDetailedModel
-    private let _sections: CurrentValueSubject<[Section], Never> = .init([])
-    private var cancelBag: Set<AnyCancellable> = .init()
-    init(model: CityWeatherDetailedModel) {
-        self.model = model
-        
-        setupBindigs()
-    }
-    
     var reload: AnyPublisher<Void, Never> {
         _data.map { _ in }
             .merge(with: model.$measureType.map { _ in })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-    
     var mesureType: Temperature {
         model.measureType
     }
-    
     var measureTitle: AnyPublisher<String, Never> {
         model.$measureType.map { $0.switchToTitle }.eraseToAnyPublisher()
+    }
+    private let _data: CurrentValueSubject<[(key: Date, value: [CurrentCityWeatherResponse])], Never> = .init([])
+    private let model: CityWeatherDetailedModel
+    private var cancelBag: Set<AnyCancellable> = .init()
+    
+    init(model: CityWeatherDetailedModel) {
+        self.model = model
+        
+        setupBindigs()
     }
     
     func toggleMeasureType() {
@@ -96,7 +93,11 @@ final class CityWeatherDetailedViewModel {
             return _data.value[sectionIndex - 1].value.count
         }
     }
-    
+}
+
+// MARK: - Private
+
+extension CityWeatherDetailedViewModel {
     private func setupBindigs() {
         model.$forecastWeather
             .filter { $0 != nil }
@@ -112,23 +113,9 @@ final class CityWeatherDetailedViewModel {
     }
 }
 
+// MARK: - Mappers
+
 extension CityWeatherDetailedViewModel: TemperatureCalculable {
-    
-    func buildSortedItems(with weatherItems: [CurrentCityWeatherResponse]) -> [(key: Date, value: [CurrentCityWeatherResponse])] {
-        let dict = weatherItems.reduce(into: [Date: [CurrentCityWeatherResponse]]()) { partialResult, item in
-            if let dateKey = partialResult.keys.first(where: { $0.hasSame(.day, as: item.dt)}) {
-                var array = partialResult[dateKey]!
-                array.append(item)
-                partialResult.updateValue(array, forKey: dateKey)
-            } else {
-                partialResult.updateValue([item], forKey: item.dt)
-            }
-        }
-        
-        return dict.sorted { lhs, rhs in
-            lhs.key < rhs.key
-        }
-    }
     
     func buildSection(at index: Int) -> Section {
         guard let mainInfo = data.first?.value.first else { return Section.forecast((Date(), [])) }
@@ -150,6 +137,22 @@ extension CityWeatherDetailedViewModel: TemperatureCalculable {
             let item = data[index - 1]
             
             return .forecast((item.key, item.value.map(mapToForecastCell)))
+        }
+    }
+    
+    private func buildSortedItems(with weatherItems: [CurrentCityWeatherResponse]) -> [(key: Date, value: [CurrentCityWeatherResponse])] {
+        let dict = weatherItems.reduce(into: [Date: [CurrentCityWeatherResponse]]()) { partialResult, item in
+            if let dateKey = partialResult.keys.first(where: { $0.hasSame(.day, as: item.dt)}) {
+                var array = partialResult[dateKey]!
+                array.append(item)
+                partialResult.updateValue(array, forKey: dateKey)
+            } else {
+                partialResult.updateValue([item], forKey: item.dt)
+            }
+        }
+        
+        return dict.sorted { lhs, rhs in
+            lhs.key < rhs.key
         }
     }
     

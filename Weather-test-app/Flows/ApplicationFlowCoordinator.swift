@@ -41,11 +41,9 @@ final class ApplicationFlowCoordinator {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
-    
-    private func buildDetailedCityWeather() -> UIViewController {
-        .init()
-    }
 }
+
+// MARK: - HomeViewVontrollerEventDelegate
 
 extension ApplicationFlowCoordinator: HomeViewVontrollerEventDelegate {
     

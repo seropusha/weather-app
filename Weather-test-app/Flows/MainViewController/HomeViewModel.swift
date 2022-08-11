@@ -51,6 +51,8 @@ final class HomeViewModel {
     }
 }
 
+// MARK: - Mappers
+
 extension HomeViewModel: TemperatureCalculable {
     func viewModel(at index: Int) -> HomeCityCell.ViewModel? {
         guard 0..<cities.count ~= index else { return nil }

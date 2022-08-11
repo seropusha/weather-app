@@ -44,7 +44,11 @@ final class DetailedCompositionalLayout {
             }
         }
     }
-    
+}
+
+// MARK: - Private
+
+extension DetailedCompositionalLayout {
     private func topInfoSection(with layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),

@@ -38,12 +38,6 @@ final class HomeModel: ObservableObject {
         self.measureType = settings.currentMeasureType
     }
     
-    private func setupSelectCityCallbackFromSearch() {
-        searchResultsModel.didSelect = { [weak self] selectedCity in
-            self?.storeSelected(city: selectedCity)
-        }
-    }
-    
     func toggleMeasureType() {
         switch measureType {
         case .fahrenheit:
@@ -51,6 +45,16 @@ final class HomeModel: ObservableObject {
             
         case .celsius:
             settings.update(measureType: .fahrenheit)
+        }
+    }
+}
+
+// MARK: - Private
+
+extension HomeModel {
+    private func setupSelectCityCallbackFromSearch() {
+        searchResultsModel.didSelect = { [weak self] selectedCity in
+            self?.storeSelected(city: selectedCity)
         }
     }
     

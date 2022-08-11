@@ -46,7 +46,11 @@ final class MainInfoWeatherCell: UICollectionViewCell {
         
         weatherImageView.cancelImageFetching()
     }
+}
 
+// MARK: - Private
+
+extension MainInfoWeatherCell {
     private func configure() {
         currentTemperatureLabel.text = viewModel.currentTemperature
         weatherImageView.setImage(viewModel.weatherImage)

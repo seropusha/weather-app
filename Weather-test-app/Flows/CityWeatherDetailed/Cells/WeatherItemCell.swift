@@ -32,7 +32,11 @@ final class WeatherItemCell: UICollectionViewCell {
             configure()
         }
     }
-    
+}
+
+// MARK: - Private
+
+extension WeatherItemCell {
     private func configure() {
         temperatureLabel.text = viewModel.temperatureString
         weatherImageView.setImage(viewModel.weatherImage)
